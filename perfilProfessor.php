@@ -51,6 +51,7 @@ function formataData($data) {
 
             <div class="title" align="center" style="font-size: 20px; "><h2><font color="#ffffff">Cadastro</font></h2><?php include "menu2.php"; ?></div>
             <?php
+           
             require "./DAO/perfilProfessor.php";
 
             $idProfessor = $_GET["id"];

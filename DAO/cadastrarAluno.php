@@ -2,6 +2,7 @@
 
 include '../alerta_wamp.php';
 include "../classes/conexao.php";
+include './calculaIdade.php';
 
 $acao = $_GET["acao"];
 $idAlunoUpdate = $_POST["idAluno"];
@@ -10,7 +11,7 @@ $idTurma = $_POST["turma"];
 
 $nomeAluno = $_POST["nomeAluno"];
 $dataNascimento = $_POST["dataNascimento"];
-$idade = calc_idade($dataNascimento);
+//$idade = calc_idade($dataNascimento);
 $sexo = $_POST["sexo"];
 
 //pais
@@ -68,8 +69,8 @@ $phone3Pai = $arrayTelefonePai[2];
 if ($acao == "salvar") {
 
     //INSERE DADOS DO ALUNO
-    mysql_query("INSERT INTO alunos (id, name, age, birth_date, gender "
-                    . ") VALUES (NULL, '$nomeAluno', '$idade', '$dataNascimento', '$sexo')") or die(mysql_error());
+    mysql_query("INSERT INTO alunos (id, name, birth_date, gender "
+                    . ") VALUES (NULL, '$nomeAluno',  '$dataNascimento', '$sexo')") or die(mysql_error());
     $id_aluno = mysql_insert_id();
 
     //SALVA IMAGEM DO PERFIL

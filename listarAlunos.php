@@ -1,6 +1,7 @@
 <?php
 include "alerta_wamp.php";
 include './classes/conexao.php';
+include './DAO/calculaIdade.php';
 
 $valorPesquisa = $_POST["valorPesquisa"];
 ?>
@@ -8,13 +9,13 @@ $valorPesquisa = $_POST["valorPesquisa"];
 <html>
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
-        <script src="javascript/angular.js"></script>
-        <script src="javascript/angular-messages.js"></script>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/formoid-flat-green.css" type="text/css" />
-        <link rel="stylesheet" href="./css/estiloMenu.css" type="text/css">
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-messages.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/formoid-flat-green.css" type="text/css" />
+    <link rel="stylesheet" href="./css/estiloMenu.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
     <style>
         .jumbotron{
             width: 95%;
@@ -51,12 +52,20 @@ $valorPesquisa = $_POST["valorPesquisa"];
             float: right; width:74%; 
         }
     </style>
+    <script>
+        function excluir(id, id_endereco, id_certidao) {
+            $.post('./DAO/perfilAluno.php', {deletar: "SIM", id: id, id_endereco: id_endereco, id_certidao: id_certidao}, function (resposta) {
+                alert(resposta);
+                window.location.href = "./listarAlunos.php";
+            });
+        }
+    </script>
 
     <div class="useracess">
         <div id="userregisterform" style="clear:both; display:block; ">
             <h22>&nbsp;</h22>
             <form id="form1" class="formoid-flat-green" style="background-color:#cccccc;font-size:14px;font-family:'Lato', sans-serif;color:#666666;max-width:80%;min-width:100%;min-height: 100%; max-height: 100%;" method="post" onSubmit="return valida(this)" >
-                <div class="title" align="center" style="font-size: 20px; "><h2><font color="#ffffff">Cadastro</font></h2><?php include "menu2.php"; ?></div>
+                <div class="title" align="center" style="font-size: 20px; "><h2><font color="#ffffff">Alunos</font></h2><?php include "menu2.php"; ?></div>
 
                 <div >
                     <table style="width: 100%" >
@@ -64,7 +73,7 @@ $valorPesquisa = $_POST["valorPesquisa"];
                             <td colspan="3" align="center" style="font-size:250%"/></td>
                         </tr>
 
-                        <tr>
+<!--                        <tr>
                             <td>
                                 <div class="element-input">
                                     <label class="title"><font color="#666666">Pesquisar</font></label>
@@ -73,7 +82,7 @@ $valorPesquisa = $_POST["valorPesquisa"];
                                 </div>
 
                             </td>
-                        </tr>
+                        </tr>-->
 
                         <tr>
                             <td>
@@ -83,9 +92,10 @@ $valorPesquisa = $_POST["valorPesquisa"];
                                         <td align=center><strong><font color="#999999">TURMA</font></strong></td>
                                         <td align=center><strong><font color="#999999">PROFESSOR</font></strong></td>
                                         <td align=center><strong><font color="#999999">IDADE</font></strong></td>
-                                        <td></td>
+                                        <td align=center colspan="2">AÇÕES</td>
                                     </tr>
                                     <tr>
+                                        <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
@@ -98,13 +108,15 @@ $valorPesquisa = $_POST["valorPesquisa"];
 
                                     $queryAlunos = listaDeAlunos($valorPesquisa);
                                     while ($dados = mysql_fetch_array($queryAlunos)) {
+                                        $idade = CalcularIdade($dados["birth_date"], "amd", "-")
                                         ?>
                                         <tr>
                                             <td align=left><strong><font color="#999999"><?php echo $dados["name"]; ?> <?php echo $dados["last_name"]; ?></font></strong></td>
                                             <td align=center><strong><font color="#999999"><?php echo $dados["turma"]; ?></font></strong></td>
                                             <td align=center><strong><font color="#999999">PROFESSOR</font></strong></td>
-                                            <td align=center><strong><font color="#999999"><?php echo $dados["age"]; ?></font></strong></td>
+                                            <td align=center><strong><font color="#999999"><?php echo $idade; ?></font></strong></td>
                                             <td align=center><strong><font color="#999999"><a href="perfilAluno.php?id=<?php echo $dados["id"]; ?>" ><img src="./img/lupa.png" title="Visualizar Cadastro" width="24" height="23" border="0"></a></font></strong></td>
+                                            <td align=center><a href="#" onclick="excluir(<?php echo $dados["id"]; ?>, '<?php echo $dados["id_endereco"]; ?>', '<?php echo $dados["id_certidao"]; ?>');"><img src="./img/delete.png" title="Excluir Cadastro" width="24" height="23" border="0"> </a></td>
                                         </tr>
                                         <?php
                                     }
@@ -119,6 +131,7 @@ $valorPesquisa = $_POST["valorPesquisa"];
                                             <td align=center><strong>&nbsp;</strong></td>
                                             <td align=center><strong>&nbsp;</strong></td>
                                             <td align=center><strong>&nbsp;</strong></td>
+                                            <td align=center><strong>&nbsp;</strong></td>
                                         </tr>
                                         <?php
                                     }
@@ -126,6 +139,7 @@ $valorPesquisa = $_POST["valorPesquisa"];
 
 
                                     <tr>
+                                        <td align=center><strong>&nbsp;</strong></td>
                                         <td align=center><strong>&nbsp;</strong></td>
                                         <td align=center><strong>&nbsp;</strong></td>
                                         <td align=center><strong>&nbsp;</strong></td>

@@ -2,10 +2,6 @@
 require './alerta_wamp.php';
 session_start();
 
-///////////////////////////////////////////////////////////////////
-// 					DESENVOLVIDO POR: EZEQUIEL SANTOS				//				
-//////////////////////////////////////////////////////////////////
-
 if (isset($_SESSION['cpfcnpj_session'])) {
     unset($_SESSION['cpfcnpj_session']);
     header("Location:index.php");
@@ -75,6 +71,7 @@ function formataData($data) {
 
             <div class="title" align="center" style="font-size: 20px; "><h2><font color="#ffffff">Cadastro</font></h2><?php include "menu2.php"; ?></div>
             <?php
+            
             require "./DAO/perfilAluno.php";
 
             $idAluno = $_GET["id"];
@@ -100,10 +97,7 @@ function formataData($data) {
                                     <div class='tabBar'></div>
                                     <span onclick="openModal()">Inserir Obs</span>
                                 </a>
-                                <a class='tabIcon' href='#'>
-                                    <div class='tabBar'></div>
-                                    <span>Financeiro</span>
-                                </a>                            
+                                                     
                             </div>
                         </div>
                     </div>
@@ -111,7 +105,7 @@ function formataData($data) {
                         <div class="profileNameBar typoSectionTitleFont"><?php echo $dados["name"]; ?></div>
                         <div class="profileSection profileHeader">
                             <span class="profileInfoEntry"><b>Turma:</b> <?php echo $dados["turma"]; ?></span>
-                            <span class="profileInfoEntry"><b>Aniverçário:</b> <?php echo formataData($dados["birth_date"]); ?></span>
+                            <span class="profileInfoEntry"><b>Aniversário:</b> <?php echo formataData($dados["birth_date"]); ?></span>
 
                             <span class="profileInfoEntry"><b>Aulas Extras</b>
                                 <?php
@@ -119,10 +113,13 @@ function formataData($data) {
                                 while ($dadosAulasExtras = mysql_fetch_array($queryAulasExtras)) {
                                     echo " -" . $dadosAulasExtras["aula"];
                                 }
+                                
+                                $queryProfessor = mysql_fetch_array(professorAluno($dados["id_turma"]));
+                               
                                 ?>
                             </span>
                             <span class="profileInfoEntry">&nbsp;</span>
-                            <span class="profileInfoEntry"><b>Professor:</b> <a href='#'>Fernanda Ribas</a></span>
+                            <span class="profileInfoEntry"><b>Professor:</b> <a href='#'><?php echo $queryProfessor["nome"]; ?></a></span>
                             <div class="clearFloat"></div>                            
                         </div>
                         <div class="profileSection">
@@ -147,7 +144,7 @@ function formataData($data) {
                                 <span class="profileInfoEntry"><b>Matricula: </b> <?php echo $dados["matricula"]; ?> </span>
                                 <span class="profileInfoEntry"><b>Local: </b> <?php echo $dados["local"]; ?></span>
                                 <span class="profileInfoEntry"><b>Cartório: </b> <?php echo $dados["cartorio"]; ?></span>
-                                <span class="profileInfoEntry"><b>Data de emissção: </b> <?php echo $dados["dataEmissao"]; ?></span>
+                                <span class="profileInfoEntry"><b>Data de emissão: </b> <?php echo formataData($dados["dataEmissao"]); ?></span>
                                 <div class="clearFloat"></div>                            
                             </div>  
                         </div>

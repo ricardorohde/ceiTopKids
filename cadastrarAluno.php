@@ -95,7 +95,7 @@ function formataIdade($data) {
                         <table style="width: 100%; " class="table table-striped">
                             <tr>
                                 <td colspan="4" class="alert alert-info jumbotron negrito">
-                                    Dados do aluno e dos pais.
+                                    Dados do aluno e dos pais
                                 </td>
                             </tr>
                             <tr>
