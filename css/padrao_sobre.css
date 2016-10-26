@@ -1,0 +1,499 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19/11/2014, 14:02:05
+    Author     : G0010679
+*/
+
+BODY
+{
+    margin: 0px;
+    padding: 0px 10px 0px 2px;
+}
+
+.tbMenu
+{
+    padding:0px;
+    margin:0px;
+    padding-top: 5px;
+}
+
+.tbMenu td 
+{
+    background-color:#EEEEEE;
+    border:#666666 1px solid;
+    text-align: center;
+    font-size: 12px;
+    color: #666666;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    height: 20px;
+    padding:0px;
+    /*max-width:250px;*/
+    padding-right:2px;
+    padding-left:2px;
+    font-variant:small-caps;
+}
+
+.tbMenu td:hover
+{
+    color:#FF9900;
+    text-decoration: none;
+}
+.tbMenu a
+{
+    color: #005aa5;
+}
+.tbMenu a:hover
+{
+    color: white;
+}
+
+select, input
+{
+    border: 1px solid #336699;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:11px;
+    color: #666666;
+    height:17px;
+}
+
+.loginFields
+{
+    border: 1px solid #336699;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:11px;
+    color: #666666;
+    height:17px;
+    width:120px;
+}
+
+.loginTxt
+{
+    color:#666666;
+    font-family:Verdana;
+    font-size:11px;
+}
+
+textarea
+{
+    border: 1px solid #005aa5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color:#666666;
+}
+
+.caption
+{
+    font-weight: bold;
+    font-size: 12px;
+    color: #005aa5;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left
+}
+.carregando
+{
+    font-weight: bold;
+    font-size: 12px;
+    color:  #abf9ab;
+    font-family:  Verdana;
+    text-align:  center;
+}
+
+.btn
+{
+    background-color:#EEEEEE;
+    border:solid 1px #336699;
+    color:#666666;
+    height:22px;
+    left:145px;
+    width:100px;
+    margin:10px 5px 10px 0px;
+    cursor: pointer;
+}
+
+.btnOk
+{
+    background:#EEEEEE;
+    font-size: 11px;
+    color:336699;
+    border: 1px solid #336699;
+    font-family:Verdana;
+    cursor: pointer;
+    width:60px;
+    height:18px;
+}
+
+
+A:link
+{
+    FONT-WEIGHT: 700;
+    FONT-SIZE: xx-small;
+    color: #ff9900;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none;
+}
+A:visited
+{
+    FONT-WEIGHT: 700;
+    FONT-SIZE: xx-small;
+    COLOR: #ff9900;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none;
+}
+A:hover
+{
+    FONT-WEIGHT: 700;
+    FONT-SIZE: xx-small;
+    COLOR: #ff9900;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: underline;
+}
+A:active
+{
+    FONT-WEIGHT: 700;
+    FONT-SIZE: xx-small;
+    COLOR: #ff9900;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none;
+}
+
+A IMG
+{
+    border: none;
+}
+
+.SobreTableTop
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    VERTICAL-ALIGN: middle;
+    WIDTH: 100%;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: black thin solid;
+    HEIGHT: 30px;
+    TEXT-ALIGN: left
+}
+.SobreTd1
+{
+    WIDTH: 100px
+}
+.SobreTd2
+{
+    WIDTH: 204px
+}
+.SobreTableMain, .voltar
+{
+    PADDING-RIGHT: 20px;
+    PADDING-LEFT: 20px;
+    PADDING-BOTTOM: 20px;
+    WIDTH: 100%;
+    PADDING-TOP: 20px;
+    TEXT-ALIGN: center
+}
+.SobreTableMain A:link, .voltar
+{
+    color: #000000;
+    font-size: x-small;	
+}
+.SobreTableMain A:visited, .voltar
+{
+    color: #666666;
+    font-size: x-small;	
+}
+.voltar {
+    text-align:right;
+    padding: 0;
+}
+.IntegreTable
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    padding-top:0px;
+    padding-bottom:0px;
+    BORDER: #666666 1px solid;
+    FONT-SIZE: xx-small;
+    FONT-FAMILY: Verdana;
+    BACKGROUND: #FFFFFF;
+    COLOR: #666666;
+    TEXT-ALIGN: justify;
+    border-collapse:collapse;
+}
+
+.IntegreTable td
+{
+    BORDER: #666666 1px solid;
+    border-collapse: collapse;
+    padding: 2px;
+}
+
+.IntegreTable TH
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14px;
+    BACKGROUND: #336699;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-ALIGN: center;
+    COLOR: #FFFFFF;
+}
+
+.IntegreTable A:link
+{
+    COLOR: #ffffff
+}
+.chamada
+{
+    color: black;
+    font-size:x-small;
+    font-family:verdana;
+    padding: 5px;
+    padding-top:0;
+}
+.chamada a:link, .chamada a:visited, .chamada a:hover, .chamada a:active
+{
+    font-weight:bold;
+    text-decoration:underline;
+    color: #000080;
+    font-size:small;
+}
+.select, .select a:link, .select a:visited, .select a:hover, .select a:active
+{
+    color:#FF6600;
+    text-decoration:underline;
+}
+
+.erro
+{
+    FONT-SIZE: 12px;
+    COLOR: red;
+    FONT-FAMILY: Verdana;
+    FONT-WEIGHT: bold;
+    font-style: italic;
+}
+
+.msg
+{
+    FONT-SIZE: 10pt;
+    COLOR: Navy;
+    FONT-FAMILY: Arial, 'MS Sans Serif';
+    FONT-WEIGHT: bolder;
+    font-style: italic;
+}
+
+UL LI
+{
+    COLOR: #666666;
+    FONT-WEIGHT: lighter;
+    FONT-SIZE: 12px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-ALIGN: justify;
+    list-style-type: circle;
+}
+
+LI UL
+{
+    margin: 5px 0px 5px 0px;
+    padding: 5px 0px 5px 0px;
+}
+
+LI STRONG
+{
+    COLOR: #666666;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-ALIGN: justify;
+    list-style-type: circle;
+}
+
+LI A:link, LI A:visited, LI A:active, H2 A:link, H2 A:visited, H2 A:active
+{
+    COLOR: #666666;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    text-decoration: underline;
+}
+
+H1
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 15px;
+    COLOR: #000080;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+H2
+{
+    COLOR: #666666;
+    FONT-WEIGHT: lighter;
+    FONT-SIZE: 12px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-ALIGN: justify
+}
+H3
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13px;
+    COLOR: #000066;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-ALIGN: justify
+}
+H4
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13px;
+    COLOR: #000066;
+    FONT-STYLE: italic;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+
+H4 a:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13px;
+    COLOR: #000066;
+    FONT-STYLE: italic;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    padding:0;
+    margin:0;
+}
+
+li.item_autoestudo a:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13px;
+    COLOR: #000066;
+    FONT-STYLE: italic;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+
+li.item_autoestudo a:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13px;
+    TEXT-ALIGN:left;
+    COLOR: #000066;
+    FONT-STYLE: italic;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    padding:0;
+    margin:0;
+}
+
+H5
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: black;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-ALIGN: center;
+}
+
+H6
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: black;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+
+div.titulo_estudo
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: black;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-ALIGN: center;
+}
+
+.pgAtiva
+{
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    color: #000080;
+    font-size:small;
+}
+
+.tbRel{
+    font-family: arial;
+    text-align: left;
+    color: #00207F;
+}
+
+.tbRel .tituloPrincipal{
+    font-size: 14pt;
+    font-weight: bolder;
+    text-decoration:underline;
+    text-align: center;
+}
+
+.tbRel .cabecalho{
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+}
+
+.cabecalho
+{
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight:bold;
+    color:336699;
+    text-align:left;
+
+}
+
+
+.titulo{
+    font-size: 12pt;
+    font-weight: bolder;
+    border-bottom: 2px solid #293AAD;
+    padding-top: 10px;
+}
+
+.subtitulo{
+    font-size: 8pt;
+    font-weight: bolder;
+    color: black;
+    border-top: 2px solid #aaaaaa;
+    border-bottom: 1px solid #cccccc;
+    border-left: 0px;
+    padding-left: 15px;
+}
+
+.tbRel .dado{
+    font-size: 8pt;
+    font-weight: normal;
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    padding: 0px 4px 0px 4px;
+}
+
+.dado
+{
+    font-size: 10px;
+    font-weight: normal;
+    color:#666666;
+    padding: 0px 4px 0px 4px;	
+}
+.bemvindo
+{
+    text-align: left;
+    font-size:16px;
+    color:#336699;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    font-weight:normal;
+}
+
+.txt
+{
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    color:#336699;
+    font-size:12px;
+}
+
+

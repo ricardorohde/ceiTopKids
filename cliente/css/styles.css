@@ -1,0 +1,47 @@
+
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot');
+  src: url('../font/fontello.eot?#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff') format('woff'),
+       url('../font/fontello.ttf') format('truetype'),
+       url('../font/fontello.svg#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.iconfont:before{
+	speak:none;
+	font-family:"fontello";
+	display:inline-block;
+	margin-right:10px;	
+}
+.iconfont.config:before{
+	content:"\e811";	
+}
+.iconfont.inicio:before{
+	content:"\e805";
+	font-size:16px;	
+}
+.iconfont.clientes:before{
+	content:"\e800";	
+}
+.iconfont.fatura:before{
+	content:"\e806";	
+}
+.iconfont.baixar:before{
+	content:"\e814";	
+}
+.iconfont.sair:before{
+	content:"\e825";	
+}
+.iconfont.ativ:before{
+	content:"\e81f";	
+}
+.iconfont.grupo:before{
+	content:"\e800";	
+}
+.iconfont.skype:before{
+	content:"\e810";	
+}
+
+/****************************************************/

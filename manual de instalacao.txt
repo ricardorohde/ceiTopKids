@@ -1,0 +1,10 @@
+1) envie a pasta boleto para sua hospedagem dentro da pasta www
+2) clie o banco de dados ( banco , usuario e senha )
+4) importe o arquivo boleto.sql para o banco criado (obs: deve renomear o nome do banco de dados boleto.sql para 
+o mesmo nome do banco de dados que criar, assim faça a importação)
+4) edite o arquivo config_conexao.php, que esta dentro da pasta classes, com os dados do banco
+
+sucesso.
+
+contato: contato@scriptcerto.com.br
+Temas wordpress, Scripts, sistemas PHP e muito mais: www.scriptcerto.com.br
