@@ -36,12 +36,14 @@ function listaObs($id) {
 function deletarAluno($id, $id_endereco, $id_certidao) {
     require '../alerta_wamp.php';
     require '../classes/conexao.php';
-    mysql_query("delete from alunos_aulas_extras where id_aluno = $id") or die(mysql_error());
-    mysql_query("delete from alunos_pessoas_autorizadas where id_aluno = $id");
-    mysql_query("delete from certidao_nascimento where id = $id_certidao");
-    mysql_query("delete from endereco_aluno where id = $id_endereco");
-    mysql_query("delete from observacao_aluno where id_aluno = $id_endereco");
-    $string_array = implode("|", array(0 => "Registro Excluido"));
+    $erro = "";
+    $erro .= mysql_query("delete from alunos_aulas_extras where id_aluno = $id") or die(mysql_error());
+    $erro .= mysql_query("delete from alunos_pessoas_autorizadas where id_aluno = $id") or die(mysql_error());
+    $erro .= mysql_query("delete from certidao_nascimento where id = $id_certidao") or die(mysql_error());
+    $erro .= mysql_query("delete from endereco_aluno where id = $id_endereco") or die(mysql_error());
+    $erro .= mysql_query("delete from observacao_aluno where id_aluno = $id") or die(mysql_error());
+    $erro .= mysql_query("delete from alunos where id = $id") or die(mysql_error());
+    $string_array = implode("|", array(0 => "Aluno Escluido"));
     echo $string_array;
 }
 

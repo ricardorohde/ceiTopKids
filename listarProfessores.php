@@ -54,10 +54,12 @@ $valorPesquisa = $_POST["valorPesquisa"];
 
     <script>
         function excluir(id, id_endereco) {
-            $.post('./DAO/perfilProfessor.php', {deletar: "SIM", id: id, id_endereco: id_endereco}, function (resposta) {
-                alert(resposta);
-                window.location.href = "./listarProfessores.php";
-            });
+            if (window.confirm("Confirma a exclusao?")) {
+                $.post('./DAO/perfilProfessor.php', {deletar: "SIM", id: id, id_endereco: id_endereco}, function (resposta) {
+                    alert(resposta);
+                    window.location.href = "./listarProfessores.php";
+                });
+            }
         }
     </script>
 

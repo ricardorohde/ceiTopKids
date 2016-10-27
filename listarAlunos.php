@@ -7,15 +7,15 @@ $valorPesquisa = $_POST["valorPesquisa"];
 ?>
 <!DOCTYPE html>
 <html>
-
+    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
     <script src="javascript/angular.js"></script>
     <script src="javascript/angular-messages.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/formoid-flat-green.css" type="text/css" />
     <link rel="stylesheet" href="./css/estiloMenu.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+    <script type="text/javascript" language="javascript" src="jquery-1.3.2.js"></script>
     <style>
         .jumbotron{
             width: 95%;
@@ -54,10 +54,13 @@ $valorPesquisa = $_POST["valorPesquisa"];
     </style>
     <script>
         function excluir(id, id_endereco, id_certidao) {
-            $.post('./DAO/perfilAluno.php', {deletar: "SIM", id: id, id_endereco: id_endereco, id_certidao: id_certidao}, function (resposta) {
-                alert(resposta);
-                window.location.href = "./listarAlunos.php";
-            });
+            if (window.confirm("Confirma a exclusao?")) {
+                $.post('./DAO/perfilAluno.php', {deletar: "SIM", id: id, id_endereco: id_endereco, id_certidao: id_certidao}, function (resposta) {
+                    alert(resposta);
+                    window.location.href = "./listarAlunos.php";
+                });
+            }
+
         }
     </script>
 
@@ -116,7 +119,7 @@ $valorPesquisa = $_POST["valorPesquisa"];
                                             <td align=center><strong><font color="#999999">PROFESSOR</font></strong></td>
                                             <td align=center><strong><font color="#999999"><?php echo $idade; ?></font></strong></td>
                                             <td align=center><strong><font color="#999999"><a href="perfilAluno.php?id=<?php echo $dados["id"]; ?>" ><img src="./img/lupa.png" title="Visualizar Cadastro" width="24" height="23" border="0"></a></font></strong></td>
-                                            <td align=center><a href="#" onclick="excluir(<?php echo $dados["id"]; ?>, '<?php echo $dados["id_endereco"]; ?>', '<?php echo $dados["id_certidao"]; ?>');"><img src="./img/delete.png" title="Excluir Cadastro" width="24" height="23" border="0"> </a></td>
+                                            <td align=center><a href="#" onclick="excluir('<?php echo $dados["id"]; ?>', '<?php echo $dados["id_endereco"]; ?>', '<?php echo $dados["id_certidao"]; ?>');"><img src="./img/delete.png" title="Excluir Cadastro" width="24" height="23" border="0"> </a></td>
                                         </tr>
                                         <?php
                                     }

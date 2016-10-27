@@ -71,7 +71,6 @@ function formataData($data) {
 
             <div class="title" align="center" style="font-size: 20px; "><h2><font color="#ffffff">Cadastro</font></h2><?php include "menu2.php"; ?></div>
             <?php
-            
             require "./DAO/perfilAluno.php";
 
             $idAluno = $_GET["id"];
@@ -84,7 +83,7 @@ function formataData($data) {
                 <div class='mainContainer'>
                     <div class="leftColumn leadingColumn">
                         <div class="pictureContainer">
-                           <img class="profilePicture"  src="<?php echo $dados["photo"]; ?>" onerror="this.src='./img/nophoto.png';"> 
+                            <img class="profilePicture"  src="<?php echo $dados["photo"]; ?>" onerror="this.src='./img/nophoto.png';"> 
                         </div>
                         <div class='userPageRow'>
                             <div class='userName'><?php echo $dados["name"]; ?></div>
@@ -97,7 +96,7 @@ function formataData($data) {
                                     <div class='tabBar'></div>
                                     <span onclick="openModal()">Inserir Obs</span>
                                 </a>
-                                                     
+
                             </div>
                         </div>
                     </div>
@@ -113,9 +112,8 @@ function formataData($data) {
                                 while ($dadosAulasExtras = mysql_fetch_array($queryAulasExtras)) {
                                     echo " -" . $dadosAulasExtras["aula"];
                                 }
-                                
-                                $queryProfessor = mysql_fetch_array(professorAluno($dados["id_turma"]));
-                               
+                                $idTurma = ($dados["id_turma"] == "")?"0":$dados["id_turma"];
+                                $queryProfessor = mysql_fetch_array(professorAluno($idTurma));
                                 ?>
                             </span>
                             <span class="profileInfoEntry">&nbsp;</span>

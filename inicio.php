@@ -92,7 +92,7 @@ $conecta = new recordset();
 
             <?php } ?>    
         </form>
-
+        <br>
         <div id="cssmenu"><?php require ("menu.php"); ?></div>
 
 

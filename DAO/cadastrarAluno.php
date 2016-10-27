@@ -186,17 +186,18 @@ if ($acao == "editar") {
     mysql_query("UPDATE endereco_aluno SET logradouro = '$logradouro', numero = '$numeroLogradouro', "
                     . "bairro = '$bairro', cidade = '$cidade', cep = '$cep' WHERE id = " . $dadosAluno["id_endereco"] . "") or die(mysql_error());
 
+    
     if ($idTurma != "") {
         mysql_query("UPDATE alunos SET id_turma = '$idTurma' WHERE id = $idAlunoUpdate");
     }
-
+    
     //editar certidao nascimento
     $numRowscertidao = mysql_query("select * from alunos where id = " . $dadosAluno["id_certidao"] . "");
     if (mysql_num_rows($numRowscertidao) > 0) {//update
         mysql_query("UPDATE certidao_nascimento SET matricula = '$matricula', local = '$local', cartorio = '$cartorio', dataEmissao = '$dataEmissao' WHERE id = " . $dadosAluno["id_certidao"] . "") or die(mysql_error());
     } else { //ainda nao foi cadastrado, insere
         mysql_query("INSERT INTO certidao_nascimento (id, matricula, local, cartorio, dataEmissao) VALUES (NULL, '$matricula', '$local', '$cartorio', '$dataEmissao')") or die(mysql_error());
-        updateForeignkeyAluno($id_aluno, "id_certidao", mysql_insert_id());
+        updateForeignkeyAluno($idAlunoUpdate, "id_certidao", mysql_insert_id());
     }
 
     inserePessoasAutorizadas($idAlunoUpdate);
@@ -272,7 +273,7 @@ function cadastrarAulasExtras($idAluno, $idAulaExtra) {
 }
 
 function updateForeignkeyAluno($idAluno, $coluna, $idChave) {
-    mysql_query("UPDATE alunos SET $coluna = '$idChave' WHERE id = $idAluno") or die(mysql_error());
+    mysql_query("UPDATE alunos SET $coluna = '$idChave' WHERE id = $idAluno") or die(mysql_error()."UPDATE alunos SET $coluna = '$idChave' WHERE id = $idAluno");
 }
 
 function salvarImagem($arquivo, $idAluno) {
